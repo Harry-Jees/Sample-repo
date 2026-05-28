@@ -1,0 +1,14 @@
+# Auto normalize line endings for all text files
+* text=auto
+
+# Ensure these files always use LF (Unix-style)
+*.js text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+
+# Ensure these files always use CRLF (Windows-style)
+*.bat text eol=crlf
+*.cmd text eol=crlf
