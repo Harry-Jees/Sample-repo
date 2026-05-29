@@ -37,7 +37,7 @@ button {
 }
 
 .scroll-space {
-  height: 2000vh;
+  height: 1800vh;
 }
 
 .stage {
@@ -525,6 +525,17 @@ button {
   .timeline-card {
     width: min(92vw, 420px);
     margin-left: 0;
+  }
+
+  .thanks {
+    font-size: clamp(2rem, 12vw, 4rem);
+    max-width: 92vw;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .phase {
+    padding: 0 12px;
   }
 }
 

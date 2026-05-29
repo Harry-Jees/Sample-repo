@@ -93,7 +93,9 @@ function SkipLink() {
       Skip to portfolio content
     </a>
   )
-}function HeroPhase({ progress, active, reducedMotion, scrollVelocity, blend }) {
+}
+
+function HeroPhase({ progress, active, reducedMotion, scrollVelocity, blend }) {
   const effectiveProgress = active ? progress : Math.min(progress + 0.1, 1)
 
   // Parallax: wave-field drifts slower
@@ -120,9 +122,13 @@ function SkipLink() {
 /* ── Card Swap Phase ── */
 
 function RingPortalPhase({ progress, active, blend }) {
-  const [selected, setSelected] = useState(
-    Math.floor(clamp(progress, 0, 1) * portalSections.length),
-  )
+  const [selected, setSelected] = useState(() => {
+    const maxIndex = portalSections.length - 1
+    return Math.min(
+      maxIndex,
+      Math.floor(clamp(progress, 0, 1) * portalSections.length),
+    )
+  })
 
   // Scroll-driven index
   const scrollIndex = clamp(
@@ -310,7 +316,7 @@ export default function App() {
       <SkipLink />
       <CursorGlow />
       <div className="scroll-space" aria-hidden="true" />
-      <main className="stage">
+      <main id="main-content" className="stage">
         <HeroPhase
           progress={progress.hero}
           active={phase.id === 'hero'}
